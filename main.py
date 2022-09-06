@@ -1,7 +1,6 @@
-import discord, os, asyncio, json
-
+from time import sleep
+import discord, os, asyncio, json, git
 from http import client
-
 from discord.ext import commands, tasks
 from dotenv import load_dotenv
 
@@ -33,6 +32,7 @@ async def unload(ctx , extension):
 @client.event
 async def on_ready():
     print("ING-BØT online!")
+
 
 # load cogs
 async def load_extensions():

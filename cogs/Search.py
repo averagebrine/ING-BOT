@@ -25,7 +25,7 @@ class Search(commands.Cog):
             else: raw = False
             args = args.lower().replace(" ", "_")
             
-            #Ingo descripto
+            # ingo descripto
             desc = requests.get('https://raw.githubusercontent.com/WaspVentMan/Ingot-Pack/main/assets/ingot_cult/sip/desc/' + args + '.txt').content.decode('utf-8')
             if desc != '404: Not Found':
                 embed = discord.Embed(title=args.replace("_", " ").title(), description=desc, url='https://github.com/WaspVentMan/Ingot-Pack/blob/main/assets/minecraft/textures/item/' + args + '.png')
@@ -34,7 +34,7 @@ class Search(commands.Cog):
             
             embed.set_footer(text="Texture unfinished?\nComplete it yourself and add it to the GitHub!")
 
-            #dumb rendering time!!!!
+            # dumb rendering time!!!!
             url = "https://raw.githubusercontent.com/WaspVentMan/Ingot-Pack/main/assets/minecraft/textures/item/" + args + ".png"
             
             urllib.request.urlretrieve(url, "temp/temp.png")
@@ -66,7 +66,7 @@ class Search(commands.Cog):
 
             await ctx.send(embed=embed, file=file)
 
-        # Error handling lmao
+        # error handling lmao
         except Exception as e:
             embed = discord.Embed(title=e)
             embed.colour = 0xFF0000
@@ -87,7 +87,7 @@ class Search(commands.Cog):
 
             args = args.lower().replace(" ", "_")
 
-            #Ingo descripto
+            # ingo descripto
             desc = requests.get('https://raw.githubusercontent.com/WaspVentMan/Ingot-Pack/main/assets/ingot_cult/sip/desc/' + args + '.txt').content.decode('utf-8')
             if desc != '404: Not Found':
                 embed = discord.Embed(title=args.replace("_", " ").title(), description=desc, url='https://github.com/WaspVentMan/Ingot-Pack/blob/main/assets/minecraft/textures/item/' + args + '.png')
@@ -95,7 +95,7 @@ class Search(commands.Cog):
             else:
                 embed = discord.Embed(title=args.replace("_", " ").title(), url='https://github.com/WaspVentMan/Ingot-Pack/blob/main/assets/minecraft/textures/item/' + args + '.png')
             
-            #dumb rendering time!!!!
+            # dumb rendering time!!!!
             url = "https://raw.githubusercontent.com/WaspVentMan/Ingot-Pack/main/assets/ingot_cult/emoji/" + args + ".png"
             
             urllib.request.urlretrieve(url, "temp/temp.png")
@@ -105,7 +105,7 @@ class Search(commands.Cog):
 
             await ctx.send(embed=embed, file=file)
 
-        # Error handling lmao
+        # error handling lmao
         except Exception as e:
             embed = discord.Embed(title=e)
             embed.colour = 0xFF0000
