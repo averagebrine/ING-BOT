@@ -1,5 +1,5 @@
 from time import sleep
-import discord, os, asyncio, json, git
+import discord, os, asyncio, json
 from http import client
 from discord.ext import commands, tasks
 from dotenv import load_dotenv
