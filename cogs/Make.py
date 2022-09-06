@@ -44,9 +44,9 @@ class Make(commands.Cog):
         base = Image.composite(empty, base, mask)
         base = base.resize((base.width * 10, base.height * 10), Image.NEAREST)
 
-        base.save("temp/temp.png")
+        base.save("assets/temp.png")
 
-        file = discord.File("temp/temp.png", filename="ingot.png")
+        file = discord.File("assets/temp.png", filename="ingot.png")
         embed.set_image(url="attachment://ingot.png")
 
         await ctx.send(embed=embed, file=file)

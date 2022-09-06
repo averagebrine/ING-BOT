@@ -37,11 +37,11 @@ class Search(commands.Cog):
             # dumb rendering time!!!!
             url = "https://raw.githubusercontent.com/WaspVentMan/Ingot-Pack/main/assets/minecraft/textures/item/" + args + ".png"
             
-            urllib.request.urlretrieve(url, "temp/temp.png")
+            urllib.request.urlretrieve(url, "assets/temp.png")
 
             if not raw:
                 base = Image.open('assets/backing.png')
-                ingot = Image.open('temp/temp.png').convert("RGBA")
+                ingot = Image.open('assets/temp.png').convert("RGBA")
 
                 ex = []
                 for x in range(8):
@@ -59,9 +59,9 @@ class Search(commands.Cog):
 
                 base = base.resize((base.width * 10, base.height * 10), Image.NEAREST)
 
-                base.save("temp/temp.png")
+                base.save("assets/temp.png")
 
-            file = discord.File("temp/temp.png", filename="ingot.png")
+            file = discord.File("assets/temp.png", filename="ingot.png")
             embed.set_image(url="attachment://ingot.png")
 
             await ctx.send(embed=embed, file=file)
@@ -98,9 +98,9 @@ class Search(commands.Cog):
             # dumb rendering time!!!!
             url = "https://raw.githubusercontent.com/WaspVentMan/Ingot-Pack/main/assets/ingot_cult/emoji/" + args + ".png"
             
-            urllib.request.urlretrieve(url, "temp/temp.png")
+            urllib.request.urlretrieve(url, "assets/temp.png")
 
-            file = discord.File("temp/temp.png", filename="ingot.png")
+            file = discord.File("assets/temp.png", filename="ingot.png")
             embed.set_image(url="attachment://ingot.png")
 
             await ctx.send(embed=embed, file=file)
