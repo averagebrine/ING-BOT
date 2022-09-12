@@ -8,7 +8,7 @@ class Make(commands.Cog):
         self.client = client
 
     @commands.command(name="make")
-    async def help(self, ctx: commands.Context, *, args: str = None):
+    async def make(self, ctx: commands.Context, *, args: str = None):
         if args == None:
             await ctx.send("You can't make nothing into something.")
             return
@@ -33,9 +33,9 @@ class Make(commands.Cog):
             if random.randint(0, 999) == 0:
                 embed.set_footer(text="Skill issue")
             else:
-                embed.set_footer(text="This message will auto-delete after 20 seconds.")
+                embed.set_footer(text="This message will will self destruct in 10 seconds...")
             m = await ctx.send(embed=embed)
-            await asyncio.sleep(20)
+            await asyncio.sleep(10)
             await m.delete()
             return
 

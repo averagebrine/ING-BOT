@@ -10,6 +10,5 @@ class Template(commands.Cog):
     async def template(self , ctx):        
       await ctx.send('Hello World!')
 
-      
 async def setup(client):
     await client.add_cog(Template(client))
