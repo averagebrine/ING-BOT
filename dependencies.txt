@@ -6,3 +6,4 @@ pip:
     discord
     asyncio
     python-dotenv
+    pillow
