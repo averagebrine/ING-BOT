@@ -4,11 +4,12 @@ from PIL import Image
 
 class Make(commands.Cog):
 
-    def __init__(self , client):
+    def __init__(self, client):
         self.client = client
 
     @commands.command(name="make")
     async def make(self, ctx: commands.Context, *, args: str = None):
+        
         if args == None:
             await ctx.send("You can't make nothing into something.")
             return
@@ -30,7 +31,7 @@ class Make(commands.Cog):
         except:
             embed = discord.Embed(title="{} does not exist as a pattern.".format(args[1]))
             embed.colour = 0xFF0000
-            if random.randint(0, 999) == 0:
+            if random.randint(0, 8) == 0:
                 embed.set_footer(text="Skill issue")
             else:
                 embed.set_footer(text="This message will will self destruct in 10 seconds...")
@@ -44,9 +45,9 @@ class Make(commands.Cog):
         base = Image.composite(empty, base, mask)
         base = base.resize((base.width * 10, base.height * 10), Image.NEAREST)
 
-        base.save("assets/temp.png")
+        base.save("assets/temp/temp.png")
 
-        file = discord.File("assets/temp.png", filename="ingot.png")
+        file = discord.File("assets/temp/temp.png", filename="ingot.png")
         embed.set_image(url="attachment://ingot.png")
 
         await ctx.send(embed=embed, file=file)

@@ -7,3 +7,5 @@ pip:
     asyncio
     python-dotenv
     pillow
+    PyGithub
+    requests

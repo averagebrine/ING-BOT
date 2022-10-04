@@ -9,6 +9,7 @@ class Search(commands.Cog):
 
     @commands.command(name="item")
     async def item(self, ctx: commands.Context, *, args: str = None):
+
         try:
             if args == None:
                 embed = discord.Embed(title="Nothing isn't an item yet, sorry.")
@@ -26,7 +27,7 @@ class Search(commands.Cog):
             args = args.lower().replace(" ", "_")
             
             # ingo descripto
-            desc = requests.get('https://raw.githubusercontent.com/WaspVentMan/Ingot-Pack/main/assets/ingot_cult/sip/desc/' + args + '.txt').content.decode('utf-8')
+            desc = requests.get('https://raw.githubusercontent.com/WaspVentMan/Ingot-Pack/main/assets/ingot_cult/ing-bot/desc/' + args + '.txt').content.decode('utf-8')
             if desc != '404: Not Found':
                 embed = discord.Embed(title=args.replace("_", " ").title(), description=desc, url='https://github.com/WaspVentMan/Ingot-Pack/blob/main/assets/minecraft/textures/item/' + args + '.png')
             else:
@@ -37,11 +38,11 @@ class Search(commands.Cog):
             # dumb rendering time!!!!
             url = "https://raw.githubusercontent.com/WaspVentMan/Ingot-Pack/main/assets/minecraft/textures/item/" + args + ".png"
             
-            urllib.request.urlretrieve(url, "assets/temp.png")
+            urllib.request.urlretrieve(url, "assets/temp/temp.png")
 
             if not raw:
                 base = Image.open('assets/backing.png')
-                ingot = Image.open('assets/temp.png').convert("RGBA")
+                ingot = Image.open('assets/temp/temp.png').convert("RGBA")
 
                 ex = []
                 for x in range(8):
@@ -59,9 +60,9 @@ class Search(commands.Cog):
 
                 base = base.resize((base.width * 10, base.height * 10), Image.NEAREST)
 
-                base.save("assets/temp.png")
+                base.save("assets/temp/temp.png")
 
-            file = discord.File("assets/temp.png", filename="ingot.png")
+            file = discord.File("assets/temp/temp.png", filename="ingot.png")
             embed.set_image(url="attachment://ingot.png")
 
             await ctx.send(embed=embed, file=file)
@@ -70,7 +71,7 @@ class Search(commands.Cog):
         except Exception as e:
             embed = discord.Embed(title=e)
             embed.colour = 0xFF0000
-            if random.randint(0, 4) == 0:
+            if random.randint(0, 8) == 0:
                 embed.set_footer(text="Skill issue")
             else:
                 embed.set_footer(text="This message will will self destruct in 10 seconds...")
@@ -80,6 +81,7 @@ class Search(commands.Cog):
     
     @commands.command(name="emoji")
     async def emoji(self, ctx: commands.Context, *, args: str = None):
+
         try:
             if args == None:
                 await ctx.send("You need to enter an item name, nothing isn't an item.")
@@ -88,7 +90,7 @@ class Search(commands.Cog):
             args = args.lower().replace(" ", "_")
 
             # ingo descripto
-            desc = requests.get('https://raw.githubusercontent.com/WaspVentMan/Ingot-Pack/main/assets/ingot_cult/sip/desc/' + args + '.txt').content.decode('utf-8')
+            desc = requests.get('https://raw.githubusercontent.com/WaspVentMan/Ingot-Pack/main/assets/ingot_cult/ing-bot/desc/' + args + '.txt').content.decode('utf-8')
             if desc != '404: Not Found':
                 embed = discord.Embed(title=args.replace("_", " ").title(), description=desc, url='https://github.com/WaspVentMan/Ingot-Pack/blob/main/assets/minecraft/textures/item/' + args + '.png')
 
@@ -98,9 +100,9 @@ class Search(commands.Cog):
             # dumb rendering time!!!!
             url = "https://raw.githubusercontent.com/WaspVentMan/Ingot-Pack/main/assets/ingot_cult/emoji/" + args + ".png"
             
-            urllib.request.urlretrieve(url, "assets/temp.png")
+            urllib.request.urlretrieve(url, "assets/temp/temp.png")
 
-            file = discord.File("assets/temp.png", filename="ingot.png")
+            file = discord.File("assets/temp/temp.png", filename="ingot.png")
             embed.set_image(url="attachment://ingot.png")
 
             await ctx.send(embed=embed, file=file)
@@ -109,7 +111,7 @@ class Search(commands.Cog):
         except Exception as e:
             embed = discord.Embed(title=e)
             embed.colour = 0xFF0000
-            if random.randint(0, 999) == 0:
+            if random.randint(0, 8) == 0:
                 embed.set_footer(text="Skill issue")
             else:
                 embed.set_footer(text="This message will will self destruct in 10 seconds...")
