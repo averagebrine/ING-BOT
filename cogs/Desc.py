@@ -83,9 +83,9 @@ class Desc(commands.Cog):
         embed = discord.Embed(title="Great success!", color=0x3ba55d)
 
         if args[1] != "":
-            embed.description = "The description has been implemented!"
+            embed.description = "The description has been implemented! Note that it will take ~5 minutes for the new description to appear."
         else:
-            embed.description = "The description has been removed!"
+            embed.description = "The description has been removed! Note that it will take ~5 minutes for this change to appear."
 
         if random.randint(0, 8) == 0:
             embed.set_footer(text="Skill issue")
